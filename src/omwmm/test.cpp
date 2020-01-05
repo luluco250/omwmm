@@ -3,6 +3,10 @@
 
 using std::cout;
 
-int main(int argc, char **argv) {
-	omwmm::test();
+namespace omwmm {
+
+void test() {
+	cout << "This is a test.\n";
+}
+
 }
