@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
 	Optional<ModManager> modmgr;
 
 	try {
-		modmgr.emplace(ModManager(Config(InFileStream("omwmm.toml"))));
+		modmgr = ModManager(Config(InFileStream("omwmm.toml")));
 	} catch (const Exception& e) {
 		cerr << "Failed to initialize mod manager: " << e.what() << '\n';
 		return 1;
