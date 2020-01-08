@@ -1,0 +1,3 @@
+data_files_path = "C:/foobar/Data Files"
+downloaded_mods_path = "C:/foobar/Mods/Downloaded"
+extracted_mods_path = "C:/foobar/Mods/Extracted"

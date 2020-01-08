@@ -1,0 +1,6 @@
+[submodule "deps/cpptoml"]
+	path = deps/cpptoml
+	url = https://github.com/skystrife/cpptoml.git
+[submodule "deps/result"]
+	path = deps/result
+	url = https://github.com/oktal/result.git
