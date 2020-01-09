@@ -2,18 +2,15 @@
 #define OMWMM_EXCEPTIONS_HPP
 
 #include <stdexcept>
-#include <string_view>
 
-namespace omwmm {
+namespace omwmm::exceptions {
 
-class ConfigException : public std::runtime_error {
-private:
-	const char* msg;
+struct ConfigException : public std::runtime_error {
+	using std::runtime_error::runtime_error;
+};
 
-public:
-	ConfigException(const char* msg);
-
-	const char* what() const override;
+struct InvalidArgumentException : public std::logic_error {
+	using std::logic_error::logic_error;
 };
 
 }

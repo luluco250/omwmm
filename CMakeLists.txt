@@ -12,7 +12,7 @@ add_library(
 	include/omwmm.hpp
 	include/omwmm/config.hpp src/omwmm/config.cpp
 	include/omwmm/modmanager.hpp src/omwmm/modmanager.cpp
-	include/omwmm/exceptions.hpp src/omwmm/exceptions.cpp
+	include/omwmm/exceptions.hpp
 )
 target_include_directories(
 	libomwmm

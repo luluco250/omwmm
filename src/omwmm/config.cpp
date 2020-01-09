@@ -11,6 +11,8 @@ using String = std::string;
 
 namespace omwmm {
 
+using namespace exceptions;
+
 Config::Config(std::istream& stream) {
 	cpptoml::parser parser(stream);
 

@@ -12,6 +12,7 @@ struct Config {
 	std::optional<std::filesystem::path> downloaded_mods_path;
 	std::optional<std::filesystem::path> extracted_mods_path;
 
+	Config() = default;
 	Config(std::istream& stream);
 };
 
