@@ -22,6 +22,10 @@ target_include_directories(
 )
 target_compile_features(libomwmm PUBLIC cxx_std_17)
 
+add_subdirectory(deps/7zip-cpp ${PROJECT_SOURCE_DIR}/build/build7zpp)
+target_include_directories(libomwmm INTERFACE deps/7zip-cpp/Include)
+target_link_libraries(libomwmm 7zpp)
+
 add_executable(
 	omwmm
 	src/cli/main.hpp src/cli/main.cpp
