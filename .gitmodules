@@ -1,9 +1,6 @@
 [submodule "deps/cpptoml"]
 	path = deps/cpptoml
 	url = https://github.com/skystrife/cpptoml.git
-[submodule "deps/result"]
-	path = deps/result
-	url = https://github.com/oktal/result.git
 [submodule "deps/7zip-cpp"]
 	path = deps/7zip-cpp
 	url = https://github.com/getnamo/7zip-cpp.git
