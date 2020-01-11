@@ -13,6 +13,7 @@ add_library(
 	include/omwmm/config.hpp src/omwmm/config.cpp
 	include/omwmm/modmanager.hpp src/omwmm/modmanager.cpp
 	include/omwmm/exceptions.hpp
+	include/omwmm/extractor.hpp src/omwmm/extractor.cpp
 )
 target_include_directories(
 	libomwmm
@@ -23,7 +24,7 @@ target_include_directories(
 target_compile_features(libomwmm PUBLIC cxx_std_17)
 
 add_subdirectory(deps/7zip-cpp ${PROJECT_SOURCE_DIR}/build/build7zpp)
-target_include_directories(libomwmm INTERFACE deps/7zip-cpp/Include)
+target_include_directories(libomwmm PRIVATE deps/7zip-cpp/Include)
 target_link_libraries(libomwmm 7zpp)
 
 add_executable(
@@ -32,3 +33,12 @@ add_executable(
 )
 target_link_libraries(omwmm PUBLIC libomwmm)
 target_include_directories(omwmm PRIVATE src)
+
+set_property(
+	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	PROPERTY VS_STARTUP_PROJECT omwmm
+)
+
+if(COMPILER_MSVC)
+	add_definitions(-DUNICODE -D_UNICODE)
+endif()

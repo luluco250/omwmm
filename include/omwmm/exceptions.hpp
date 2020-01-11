@@ -5,13 +5,17 @@
 
 namespace omwmm::exceptions {
 
-struct ConfigException : public std::runtime_error {
-	using std::runtime_error::runtime_error;
+#define DECLARE(NAME, BASE_NAMESPACE, BASE_NAME) \
+struct NAME : public BASE_NAMESPACE::BASE_NAME { \
+	using BASE_NAMESPACE::BASE_NAME::BASE_NAME; \
 };
 
-struct InvalidArgumentException : public std::logic_error {
-	using std::logic_error::logic_error;
-};
+DECLARE(ModManagerSetupException, std, runtime_error)
+DECLARE(ConfigException, std, runtime_error)
+DECLARE(ExtractorException, std, runtime_error)
+DECLARE(InvalidArgumentException, std, logic_error)
+
+#undef DECLARE
 
 }
 

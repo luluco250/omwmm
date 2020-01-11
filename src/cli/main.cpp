@@ -37,6 +37,9 @@ ModManager setup() {
 	} catch (const ConfigException&) {
 		cerr << "Failed to parse config file!\n";
 		throw;
+	} catch (const ModManagerSetupException&) {
+		cerr << "Failed to initialize mod manager!\n";
+		throw;
 	} catch (const Exception&) {
 		cerr << "Failed to initialize mod manager!\n";
 		throw;
@@ -44,7 +47,8 @@ ModManager setup() {
 }
 
 void test(ModManager& modmgr) {
-	cout << modmgr.data_files_path() << '\n';
-	cout << modmgr.downloaded_mods_path() << '\n';
-	cout << modmgr.extracted_mods_path() << '\n';
+	modmgr.query_downloads([&](auto mod_name) {
+		cout << "Extracting \"" << mod_name << '"' << '\n';
+		modmgr.extract_mod(mod_name);
+	});
 }

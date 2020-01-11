@@ -2,14 +2,20 @@
 #define OMWMM_MODMANAGER_HPP
 
 #include "config.hpp"
+
 #include <optional>
 #include <filesystem>
+#include <functional>
+#include <string_view>
+
+#include "extractor.hpp"
 
 namespace omwmm {
 
 class ModManager {
 private:
 	Config _config;
+	Extractor _extractor;
 
 public:
 	/**
@@ -20,6 +26,20 @@ public:
 	 * @see config()
 	 */
 	ModManager(const Config& cfg);
+
+	/**
+	 * Iterate over downloaded mods.
+	 */
+	void query_downloads(
+		const std::function<void(std::string_view)>& func
+	);
+
+	/**
+	 * Extract mod.
+	 * 
+	 * @param name Mod filename, including extension.
+	 */
+	void extract_mod(std::string_view name);
 
 	/**
 	 * Get the current configuration.
